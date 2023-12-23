@@ -1,21 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Long+Cang&display=swap');
-body{
-    height: 95vh;
+.first-page{
+    height: 100vh;
     background:#59AFA5 ;
     display: grid;
     place-items: center;
     overflow: hidden;
+
+}
+body, html {
+    margin: 0;
+    padding: 0;
 }
 
 *{
     box-sizing: border-box;
     user-select: none;
- 
+
 }
 
 .cassette {
     text-align: center;
-    padding:4% 4%;
+    padding: 4% 4%;
+    max-width: 100%; /* Adjust the maximum width as needed */
 
 }
 
@@ -288,4 +294,62 @@ h2{
     to {
         transform: translateX(0px);
     }
+}
+
+
+
+
+
+  @media (max-width: 505px) {
+    .rectangle {
+        width:390px;
+        height: 260px;
+    }
+    .inner-rectangle {
+        top:20px;
+        width:330px;
+        height: 170px;
+    }
+    .cassette-body{
+        position:relative;
+        width:275px;
+        border-bottom: 50px solid #000000;
+        border-right: 10px solid transparent;
+        height: 10px;
+        top: 10px;
+    }
+    h2{
+        left:-125px;
+        top:-45px;
+    }
+    .box{
+        top:2px;
+        left:50px;
+        background:#272727 ;
+        width:230px;
+        height: 93%;
+        border-radius: 30px;
+        border: 3px solid #CEBAA1;
+    }
+    .title{
+        text-align: center;
+        border:1px solid black;
+        width:100%;
+        height: 28px;
+        border-right: 0;
+        border-left: 0;
+    
+    }
+    .signature {
+        top: 116%;
+        transform: translateX(-50%) rotate(-30deg);
+        z-index: 2;
+    }
+      #ringo {
+        height: 53px;
+        left:-165px;
+        top: 80px;
+        z-index: 1;
+      }
+      
 }

@@ -1,0 +1,161 @@
+/* Inspired by a Dribble by Allan Peters */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Handlee);
+
+.second-page {
+    min-height: 100vh; /* Set a minimum height equal to the viewport height */
+    padding: 2%;
+    background: #AED6D9 ;
+    font-family: 'Roboto', sans-serif;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+.paper {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 700px;
+  margin: 0 auto;
+  background: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 13px 13px 8px rgba(0, 0, 0, .3);
+
+}
+
+.paper:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  background: radial-gradient(#575450 6px, transparent 7px) repeat-y;
+  background-size: 30px 30px;
+  border-right: 3px solid #D44147;
+  box-sizing: border-box;
+}
+
+
+.paper-content {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  bottom: 30px;
+  left: 60px;
+}
+
+/* Style for the div to mimic the textarea */
+.paper-content div {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  line-height: 30px;
+  padding: 0 10px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: rgb(4, 4, 5);
+  font-family: 'Handlee', cursive;
+  font-weight: bold;
+  font-size: 16px;
+  box-sizing: border-box;
+  white-space: pre-wrap; /* Preserve newline characters */
+  
+}
+
+.text {
+    overflow: hidden;
+    white-space: pre-wrap;
+    margin: 0;
+    max-height: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.75); /* Add border for cursor effect */
+    opacity: 0; /* Initial opacity set to hide the text */
+  }
+
+
+#bart{
+    max-width: 70px;
+    position: absolute;
+    left: 75%;
+}
+
+#drums{
+    max-width: 90px;
+    position: absolute;
+    left: 75%;
+    bottom: 0%;
+}
+
+
+  @keyframes typewriter {
+    0% {
+      max-height: 0;
+      opacity: 0; /* Hide text at the beginning of the animation */
+    }
+    10% {
+      opacity: 1; /* Start showing text after a small percentage of the animation */
+    }
+    100% {
+      max-height: 100%;
+      opacity: 1; /* Show text at the end of the animation */
+    }
+  }
+
+  @keyframes blinkTextCursor {
+    from {
+      border-right-color: rgba(255, 255, 255, 0.75);
+    }
+    to {
+      border-right-color: transparent;
+    }
+  }
+
+
+  @media (max-width: 560px) {
+    #bart{
+        left: 0%;
+        bottom: 0%;
+    }
+    #drums{
+        left: 70%;
+    }
+    
+    .paper-content div {
+        line-height: 23px;
+        padding: 0 10px;
+        font-size: 15px;
+      }
+      .paper:before {
+        width: 40px;
+      }
+      #bart{
+        max-width: 50px;
+        transform: scaleX(-1); /* Invert the image horizontally */
+    }
+    #drums{
+        max-width: 70px;
+        
+    }
+  }
+
+
+  @media (max-width: 430px) {
+    .paper-content div {
+        line-height: 19px;
+        padding-right: 6%;
+        
+      }
+  }
+
+  @media (max-width: 390px) {
+    .paper-content div {
+        line-height: 16px;
+        font-size: 14px;
+        
+      }
+
+  }
+

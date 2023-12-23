@@ -52,9 +52,27 @@ document.addEventListener("DOMContentLoaded", function () {
   // Array of songs
   var playlist = [
     "https://namratapdrjs.netlify.app/lofi-music.mp3",
-    "Music/Kiss From A Rose-Seal.mp3",
-    "Music/Closer-The_Chainsmokers_ft._Halsey.mp3",
-    "Music/Iris - Goo Goo Dolls.mp3"
+    "Music/Concerto in D Minor for 2 Mandolins RV. 532 Andante Arr. For Cello and Voice.mp3",
+    
+    "Music/Querida Alma Gemela_cCmfIDhGokM.mp3",
+    "Music/Bésame Mucho.mp3",
+    "Music/Tú sí sabes quererme - Natalia Lafourcade.mp3",
+    "Music/Porta - Vacío.mp3",
+    "Music/La Bien Querida - Esto Que Tengo Contigo.mp3",
+    "Music/iñigo quintero - Si No Estás.mp3",
+    "Music/Volver - Estrella Morente.mp3",
+    "Music/ZOE Soñé Unplugged.mp3",
+    "Music/ZOE Luna Unplugged.mp3",
+
+    "Music/D.A.M.A Casa.mp3",
+    "Music/BISPO Planeta ft. Bárbara Tinoco.mp3",
+    "Music/D.A.M.A Loucamente feat. Los Romeros.mp3",
+    "Music/isaac_costa___dois_quatro_sobre_sete.mp3",
+    "Music/KAPPA JOTTA feat MUN ROSAS.mp3",
+    "Music/Carolina Deslandes Avião De Papel ft. Rui Veloso.mp3",
+    "",
+
+    
     // https://www.youtube.com/watch?v=9AEoUa0Hlso
     // Rocío Dúrcal - Amor eterno
     // Manu Chao - Me Gustas Tu (Official Audio)
@@ -104,6 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
       song(lofi);
     } else {
       lofi.pause();
+ 
     }
   });
 
@@ -115,3 +134,41 @@ document.addEventListener("DOMContentLoaded", function () {
     song(lofi);
   });
 });
+
+// start from the beggining of the page
+window.onload = function() {
+  window.setTimeout(
+      function() { window.scrollTo(0,0); }
+)};
+
+
+
+    // Function to start typewriter animation
+    function startTypewriterAnimation() {
+      const textElement = document.querySelector('.text');
+      textElement.style.animation = 'typewriter 7s steps(44) 500ms 1 normal both, blinkTextCursor 500ms steps(44) infinite normal';
+    }
+  
+    // Intersection Observer to trigger animation when the element comes into view
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          startTypewriterAnimation();
+          // Reset max-height to 0 for the next time
+          entry.target.style.maxHeight = '0';
+  
+          // Listen for the animationiteration event
+          entry.target.addEventListener('animationiteration', () => {
+            // Reset animation when it completes an iteration
+            entry.target.style.animation = 'none';
+            setTimeout(() => {
+              // Reapply animation after a short delay to restart it
+              startTypewriterAnimation();
+            }, 0);
+          }, { once: true }); // Use once option to remove the event listener after one iteration
+        }
+      });
+    }, { threshold: 0.5 });
+  
+    // Observe the .text element continuously
+    observer.observe(document.querySelector('.text'));
