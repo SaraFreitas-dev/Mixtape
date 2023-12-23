@@ -70,7 +70,15 @@ document.addEventListener("DOMContentLoaded", function () {
     "Music/isaac_costa___dois_quatro_sobre_sete.mp3",
     "Music/KAPPA JOTTA feat MUN ROSAS.mp3",
     "Music/Carolina Deslandes Avião De Papel ft. Rui Veloso.mp3",
-    "",
+    "Music/Coisa Mais Bonita-Carolina_Deslandes.mp3",
+    "Music/Bárbara Tinoco A Fugir De Ser Acústico.mp3",
+    "Music/MARIZA Quem Me Dera.mp3",
+    "Music/Tiago Bettencourt Canção do Engate.mp3",
+    "Music/Murta Luna.mp3",
+    "Music/Os Quatro e Meia A Terra Gira.mp3",
+    "Music/Os Quatro e Meia O Tempo Vai Esperar.mp3",
+    "Music/Janeiro sem título.mp3",
+
 
     
     // https://www.youtube.com/watch?v=9AEoUa0Hlso
