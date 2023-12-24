@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   ];
 
+  
   var currentSongIndex = 0;
 
   // Shuffle function
@@ -117,24 +118,27 @@ document.addEventListener("DOMContentLoaded", function () {
       song(lofi);
     } else {
       lofi.pause();
- 
     }
   });
 
-  // Event listener for the end of the current song
-  lofi.addEventListener("ended", function () {
-// Increment the index to play the next shuffled song
-currentSongIndex = (currentSongIndex + 1) % playlist.length;
+// Event listener for the time update
+lofi.addEventListener("timeupdate", function () {
+  // Check if the song is near the end (e.g., last 5 seconds)
+  if (lofi.currentTime > lofi.duration - 5) {
+    // Increment the index to play the next song
+    currentSongIndex = (currentSongIndex + 1) % playlist.length;
+    
+    // Set the source of the audio element to the next song
+    lofi.src = playlist[currentSongIndex];
+    
+    // Play the next song
+    lofi.play();
+    
+    // Add animation classes for the next song
+    song(lofi);
+  }
+});
 
-// Set the source of the audio element to the next shuffled song
-lofi.src = playlist[currentSongIndex];
-
-// Play the next song
-lofi.play();
-
-// Add animation classes for the next song
-song(lofi);
-  });
 });
 
 // start from the beggining of the page
