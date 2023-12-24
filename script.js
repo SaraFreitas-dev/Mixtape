@@ -53,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
   var playlist = [
     "https://namratapdrjs.netlify.app/lofi-music.mp3",
     "Music/Concerto in D Minor for 2 Mandolins RV. 532 Andante Arr. For Cello and Voice.mp3",
-    
     "Music/Querida Alma Gemela_cCmfIDhGokM.mp3",
     "Music/Bésame Mucho.mp3",
     "Music/Tú sí sabes quererme - Natalia Lafourcade.mp3",
@@ -63,7 +62,6 @@ document.addEventListener("DOMContentLoaded", function () {
     "Music/Volver - Estrella Morente.mp3",
     "Music/ZOE Soñé Unplugged.mp3",
     "Music/ZOE Luna Unplugged.mp3",
-
     "Music/D.A.M.A Casa.mp3",
     "Music/BISPO Planeta ft. Bárbara Tinoco.mp3",
     "Music/D.A.M.A Loucamente feat. Los Romeros.mp3",
@@ -78,17 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
     "Music/Os Quatro e Meia A Terra Gira.mp3",
     "Music/Os Quatro e Meia O Tempo Vai Esperar.mp3",
     "Music/Janeiro sem título.mp3",
-
-
-    
-    // https://www.youtube.com/watch?v=9AEoUa0Hlso
-    // Rocío Dúrcal - Amor eterno
-    // Manu Chao - Me Gustas Tu (Official Audio)
-    // Caballo Viejo Simon Diaz (Letra) HD
-    // Alma Llanera - Simón Diaz - SantiMusic.TV
-    // Carmen DeLeon - Bésame Bonito Remix feat. Micro TDH (Video Oficial)
-    
-
 
   ];
 
@@ -136,10 +123,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Event listener for the end of the current song
   lofi.addEventListener("ended", function () {
-    currentSongIndex = (currentSongIndex + 1) % playlist.length;
-    lofi.src = playlist[currentSongIndex];
-    lofi.play();
-    song(lofi);
+// Increment the index to play the next shuffled song
+currentSongIndex = (currentSongIndex + 1) % playlist.length;
+
+// Set the source of the audio element to the next shuffled song
+lofi.src = playlist[currentSongIndex];
+
+// Play the next song
+lofi.play();
+
+// Add animation classes for the next song
+song(lofi);
   });
 });
 
