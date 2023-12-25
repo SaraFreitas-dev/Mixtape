@@ -53,30 +53,29 @@ document.addEventListener("DOMContentLoaded", function () {
   var playlist = [
     "https://namratapdrjs.netlify.app/lofi-music.mp3",
     "Music/Concerto in D Minor for 2 Mandolins RV. 532 Andante Arr. For Cello and Voice.mp3",
-    "Music/Querida Alma Gemela_cCmfIDhGokM.mp3",
+    "Music/Bárbara Tinoco A Fugir De Ser Acústico.mp3",
     "Music/Bésame Mucho.mp3",
+    "Music/Os Quatro e Meia O Tempo Vai Esperar.mp3",
     "Music/Tú sí sabes quererme - Natalia Lafourcade.mp3",
+    "Music/D.A.M.A Casa.mp3",
     "Music/Porta - Vacío.mp3",
-    "Music/La Bien Querida - Esto Que Tengo Contigo.mp3",
     "Music/iñigo quintero - Si No Estás.mp3",
     "Music/Volver - Estrella Morente.mp3",
     "Music/ZOE Soñé Unplugged.mp3",
-    "Music/ZOE Luna Unplugged.mp3",
-    "Music/D.A.M.A Casa.mp3",
     "Music/BISPO Planeta ft. Bárbara Tinoco.mp3",
-    "Music/D.A.M.A Loucamente feat. Los Romeros.mp3",
     "Music/isaac_costa___dois_quatro_sobre_sete.mp3",
     "Music/KAPPA JOTTA feat MUN ROSAS.mp3",
+    "Music/Querida Alma Gemela_cCmfIDhGokM.mp3",
     "Music/Carolina Deslandes Avião De Papel ft. Rui Veloso.mp3",
     "Music/Coisa Mais Bonita-Carolina_Deslandes.mp3",
-    "Music/Bárbara Tinoco A Fugir De Ser Acústico.mp3",
+    "Music/D.A.M.A Loucamente feat. Los Romeros.mp3",
     "Music/MARIZA Quem Me Dera.mp3",
+    "Music/La Bien Querida - Esto Que Tengo Contigo.mp3",
     "Music/Tiago Bettencourt Canção do Engate.mp3",
     "Music/Murta Luna.mp3",
+    "Music/ZOE Luna Unplugged.mp3",
     "Music/Os Quatro e Meia A Terra Gira.mp3",
-    "Music/Os Quatro e Meia O Tempo Vai Esperar.mp3",
     "Music/Janeiro sem título.mp3",
-
   ];
 
   
@@ -92,20 +91,20 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Shuffle the playlist
-  playlist = shuffle(playlist);
+  Shuffled_playlist = shuffle(playlist);
 
   // Function to play the previous song
   tapPrev.addEventListener("click", function () {
-    currentSongIndex = (currentSongIndex - 1 + playlist.length) % playlist.length;
-    lofi.src = playlist[currentSongIndex];
+    currentSongIndex = (currentSongIndex - 1 + Shuffled_playlist.length) % Shuffled_playlist.length;
+    lofi.src = Shuffled_playlist[currentSongIndex];
     lofi.play();
     song(lofi);
   });
 
   // Function to play the next song
   tapNext.addEventListener("click", function () {
-    currentSongIndex = (currentSongIndex + 1) % playlist.length;
-    lofi.src = playlist[currentSongIndex];
+    currentSongIndex = (currentSongIndex + 1) % Shuffled_playlist.length;
+    lofi.src = Shuffled_playlist[currentSongIndex];
     lofi.play();
     song(lofi);
   });
@@ -113,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Add a click event listener to the cassette element
   tapPlay.addEventListener("click", function () {
     if (lofi.paused) {
-      lofi.src = playlist[currentSongIndex];
+      lofi.src = Shuffled_playlist[currentSongIndex];
       lofi.play();
       song(lofi);
     } else {
@@ -125,19 +124,16 @@ document.addEventListener("DOMContentLoaded", function () {
 lofi.addEventListener("timeupdate", function () {
   // Check if the song is near the end (e.g., last 5 seconds)
   if (lofi.currentTime > lofi.duration - 5) {
-    // Increment the index to play the next song
-    currentSongIndex = (currentSongIndex + 1) % playlist.length;
-    
-    // Set the source of the audio element to the next song
-    lofi.src = playlist[currentSongIndex];
-    
-    // Play the next song
+    // Increment the index based on the shuffled order
+    currentSongIndex = (currentSongIndex + 1) % Shuffled_playlist.length;
+
+    // Set the source of the audio element to the next shuffled song
+    lofi.src = Shuffled_playlist[currentSongIndex];
     lofi.play();
-    
-    // Add animation classes for the next song
     song(lofi);
   }
 });
+
 
 });
 
@@ -149,32 +145,34 @@ window.onload = function() {
 
 
 
-    // Function to start typewriter animation
-    function startTypewriterAnimation() {
-      const textElement = document.querySelector('.text');
-      textElement.style.animation = 'typewriter 7s steps(44) 500ms 1 normal both, blinkTextCursor 500ms steps(44) infinite normal';
-    }
-  
-    // Intersection Observer to trigger animation when the element comes into view
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
+// Function to start typewriter animation
+function startTypewriterAnimation() {
+  const textElement = document.querySelector('.text');
+  textElement.style.animation = 'typewriter 7s steps(44) 500ms 1 normal both, blinkTextCursor 500ms steps(44) infinite normal';
+}
+
+// Intersection Observer to trigger animation when the element comes into view
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Reset max-height to its initial value
+      entry.target.style.maxHeight = null;
+
+      // Start typewriter animation
+      startTypewriterAnimation();
+
+      // Listen for the animationiteration event
+      entry.target.addEventListener('animationiteration', () => {
+        // Reset animation when it completes an iteration
+        entry.target.style.animation = 'none';
+        setTimeout(() => {
+          // Reapply animation after a short delay to restart it
           startTypewriterAnimation();
-          // Reset max-height to 0 for the next time
-          entry.target.style.maxHeight = '0';
-  
-          // Listen for the animationiteration event
-          entry.target.addEventListener('animationiteration', () => {
-            // Reset animation when it completes an iteration
-            entry.target.style.animation = 'none';
-            setTimeout(() => {
-              // Reapply animation after a short delay to restart it
-              startTypewriterAnimation();
-            }, 0);
-          }, { once: true }); // Use once option to remove the event listener after one iteration
-        }
-      });
-    }, { threshold: 0.5 });
-  
-    // Observe the .text element continuously
-    observer.observe(document.querySelector('.text'));
+        }, 0);
+      }, { once: true }); // Use once option to remove the event listener after one iteration
+    }
+  });
+}, { threshold: 0.1 });
+
+// Observe the .text element continuously
+observer.observe(document.querySelector('.text'));
