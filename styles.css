@@ -353,3 +353,60 @@ h2{
       }
       
 }
+
+
+@media (max-width: 420px) {
+    .rectangle {
+        width:320px;
+        height: 200px;
+    }
+    .inner-rectangle {
+        top:20px;
+        width:260px;
+        height: 100px;
+    }
+    .cassette-body{
+        position:relative;
+        width:205px;
+        border-bottom: 20px solid #000000;
+        border-right: 20px solid transparent;
+        height: 5px;
+        top: 34px;
+    }
+    .squares{
+        top:7px;
+        height:10px;
+        width:10px;
+        left: 5px;
+    }
+    .two{
+        left:142px;
+        top: -3px;
+    }
+    h2{
+        left:-115px;
+        top: -35px;
+        font-size:medium;
+    }
+    .box{
+        left:35px;
+        width:190px;
+        border-radius: 40px;
+    }
+    .title{
+        height: 26px;    
+    }
+    .signature {
+        top: 137%;
+        transform: translateX(-50%) rotate(-25deg);
+    }
+      #ringo {
+        height: 45px;
+        left:-128px;
+        top: 45px;
+        z-index: 1;
+      }
+  #tap {
+    font-size:larger;
+  }    
+}

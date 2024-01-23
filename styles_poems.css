@@ -144,18 +144,28 @@
 
   @media (max-width: 430px) {
     .paper-content div {
-        line-height: 19px;
         padding-right: 6%;
-        
+        font-size: 15px;
       }
   }
 
-  @media (max-width: 390px) {
+  @media (max-width: 400px) {
     .paper-content div {
-        line-height: 16px;
         font-size: 14px;
-        
+        line-height: 17px;
       }
-
+      @media (max-width: 350px) {
+        .paper-content div {
+            font-size: 13px;
+            line-height: 15px;
+          }
+          #bart{
+            left: 0%;
+            bottom: 0%;
+        }
+        #drums{
+            left: 50%;
+        }  
+      }    
   }
 
