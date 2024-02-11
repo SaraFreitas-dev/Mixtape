@@ -67,13 +67,29 @@
 }
 
 .text {
-    overflow: hidden;
-    white-space: pre-wrap;
-    margin: 0;
-    max-height: 0;
-    border-right: 1px solid rgba(255, 255, 255, 0.75); /* Add border for cursor effect */
-    opacity: 0; /* Initial opacity set to hide the text */
+  overflow: hidden;
+  white-space: pre-wrap;
+  margin: 0;
+  max-height: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.75); /* Add border for cursor effect */
+  opacity: 0; /* Initial opacity set to hide the text */
+  animation: typewriter 3s steps(40) 1s forwards, blinkTextCursor 0.75s step-end infinite;
+  /* Adjust the animation duration and delay to match your desired timing */
+}
+
+@keyframes typewriter {
+  0% {
+      max-height: 0;
+      opacity: 0; /* Hide text at the beginning of the animation */
   }
+  10% {
+      opacity: 1; /* Start showing text after a small percentage of the animation */
+  }
+  100% {
+      max-height: 100%;
+      opacity: 1; /* Show text at the end of the animation */
+  }
+}
 
 
 #bart{
@@ -90,19 +106,6 @@
 }
 
 
-  @keyframes typewriter {
-    0% {
-      max-height: 0;
-      opacity: 0; /* Hide text at the beginning of the animation */
-    }
-    10% {
-      opacity: 1; /* Start showing text after a small percentage of the animation */
-    }
-    100% {
-      max-height: 100%;
-      opacity: 1; /* Show text at the end of the animation */
-    }
-  }
 
   @keyframes blinkTextCursor {
     from {
