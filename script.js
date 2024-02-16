@@ -76,6 +76,8 @@ document.addEventListener("DOMContentLoaded", function () {
     "Music/ZOE Luna Unplugged.mp3",
     "Music/Os Quatro e Meia A Terra Gira.mp3",
     "Music/Janeiro sem título.mp3",
+    "Music/Hombres G - Te Quiero.mp3",
+    "Music/Café Tacvba - Eres.m4a",
   ];
 
   
